@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {AuthService} from '@/services';
 
 

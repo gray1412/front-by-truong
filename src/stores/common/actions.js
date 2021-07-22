@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const ACTION_SET_BEFORE_ROUTER = "actionSetBeforeRouter";
 export const ACTION_SET_LOADING = "actionSetLoading";
 export const ACTION_FINISH_LOADING = "actionFinishLoading";

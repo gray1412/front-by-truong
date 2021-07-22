@@ -45,7 +45,7 @@ export default {
   components: {},
   data() {
     return {
-      username: "",
+      email: "",
       password: "",
       prevRoute: null,
     };
@@ -79,10 +79,10 @@ export default {
     submit() {
       // this.$refs.form.validate();
       let data = {
-        email: this.username,
+        email: this.email,
         password: this.password,
       };
-      localStorage.setItem("email", this.username);
+      localStorage.setItem("email", this.email);
       this.loginForm(data)
         .then(() => {
           if (this.checkRouteBefore) {
