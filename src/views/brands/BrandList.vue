@@ -5,12 +5,12 @@
         xs12
         sm6
         md4
-        lg2
-        v-for="product in products"
-        :key="product.ID"
+        lg1
+        v-for="brand in brands"
+        :key="brand.ID"
         class="cart"
       >
-        <Product :product="product" />
+        <Brand :brand="brand" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -18,20 +18,20 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Product from "./Product.vue";
+import Brand from "../../components/brands/Brand";
 export default {
-  name: "ProductList",
+  name: "BrandList",
   computed: {
-    ...mapGetters("product", ["products"]),
+    ...mapGetters("brand", ["brands"]),
   },
   components: {
-    Product,
+    Brand,
   },
   methods: {
-    ...mapActions("product", ["getProducts", "addCart", "removeCart"]),
+    ...mapActions("brand", ["getBrands"]),
   },
   mounted() {
-    this.getProducts();
+    this.getBrands();
   },
 };
 </script>

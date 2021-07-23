@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 // import ApiService from "../../services/ApiService";
 import {
   ACTION_SET_BEFORE_ROUTER,

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import axios from '../utils/axios'
 
 const ApiService = {

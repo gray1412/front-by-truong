@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 export const SET_LOADING = "setLoading";
 export const FINISH_LOADING = "finishLoading";
 export const CLEAR_LOADING = "clearLoading";

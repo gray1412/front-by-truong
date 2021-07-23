@@ -1,88 +1,55 @@
 <template>
   <div id="app">
+    <div class="row-nav-top">
+      <div class="nav-top" v-if="authUser">
+        <div @click="logout">Logout</div>
+      </div>
+      <div class="nav-top" v-if="!authUser">
+        <div @click="$router.push({ name: 'login' })">Login</div>
+        <div>|</div>
+        <div @click="$router.push({ name: 'sign-up' })">Sign Up</div>
+      </div>
+    </div>
     <v-row class="navbar">
-      <v-col cols="4" lg="4" md="2" sm="2" xs="2">
+      <v-col cols="3" lg="3" md="2" sm="2" xs="2">
         <div class="route-home" @click="$router.push({ name: 'home' })">
-          DuyAnh|Truong
+          DUYANH|TRUONG
         </div>
       </v-col>
-      <v-col lg="4" md="4" sm="4" xs="4" class="category">
+
+      <v-col cols="4" lg="4" md="2" sm="2" xs="2" class="category">
         <v-row>
-          <v-col class="nav-hover"></v-col>
-          <v-col class="nav-hover">Men</v-col>
-          <v-col class="nav-hover">Women</v-col>
-          <v-col class="nav-hover">Sale</v-col>
-          <v-col class="nav-hover">Contact</v-col>
-          <v-col class="nav-hover"></v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="4" lg="4" md="6" sm="6" xs="6" class="nav-right">
-        <v-row class="search">
-          <v-col cols="6">
-            <v-text-field
-              class="border-input input-edit search-bar"
-              filled
-              rounded
-              dense
-              height="44"
-              color="#171717"
-              placeholder="Search"
-              hide-details
+          <v-col class="nav-hover">
+            <router-link to="/posts" style="text-decoration: none"
+              >TIN TỨC</router-link
             >
-              <template v-slot:prepend-inner>
-                <img
-                  width="22"
-                  height="30"
-                  style="margin-right: 5px"
-                  src="@/assets/svg/ic_searchBar.svg"
-                />
-              </template>
-            </v-text-field>
           </v-col>
-          <v-col cols="6" v-if="user">
-            <v-row class="row-margin">
-              <v-col cols="7" class="text-center nav-hover"> My Cart </v-col>
-              <v-col cols="5">
-                <button class="btn-logout" @click="logout()">LOGOUT</button>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col cols="6" v-else>
-            <v-row class="row-margin">
-              <v-col cols="12">
-                <button
-                  class="btn-logout"
-                  @click="$router.push({ name: 'sign-up' })"
-                >
-                  SIGN UP
-                </button>
-                <button
-                  class="btn-login"
-                  @click="$router.push({ name: 'login' })"
-                >
-                  LOGIN
-                </button>
-              </v-col>
-            </v-row>
+          <v-col class="nav-hover">
+            <router-link to="/brands" style="text-decoration: none"
+              >THƯƠNG HIỆU</router-link
+            >
           </v-col>
         </v-row>
       </v-col>
-      <v-col lg="10" md="10" sm="10" xs="10" class="respon-item">
-        <v-row class="row-margin">
-          <v-col lg="8" md="8" sm="8" xs="8"></v-col>
-          <v-col lg="2" xs="2" class="respon-menu">
-            <v-row>
-              <v-col cols="6">
-                <img width="30" height="40" src="@/assets/svg/ic_search.svg" />
-              </v-col>
-              <v-col cols="6"
-                ><img
-                  width="40"
-                  height="40"
-                  style="margin-right: 5px"
-                  src="@/assets/svg/ic_menu.svg"
-              /></v-col>
-            </v-row>
+      <v-col cols="6" lg="4" md="6" sm="6" xs="6" class="nav-right">
+        <v-row class="search">
+          <v-col cols="8">
+            <v-dialog max-width="600">
+              <template v-slot:activator="">
+                <v-col cols="12">
+                  <v-text-field
+                    class="border-input input-edit search-bar"
+                    filled
+                    rounded
+                    dense
+                    height="30"
+                    color="#171717"
+                    placeholder="Search"
+                  >
+                  </v-text-field>
+                </v-col>
+              </template>
+            </v-dialog>
           </v-col>
         </v-row>
       </v-col>
@@ -104,9 +71,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: "auth/authUser",
+      authUser: "auth/authUser",
     }),
-
     id() {
       return this.$route.params.id;
     },
@@ -127,6 +93,22 @@ export default {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
+.col-center {
+  display: flex;
+  justify-content: center;
+}
+.col-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-close {
+  border-radius: 50% !important;
+  background-color: #f9f9f9 !important;
+  min-width: 36px !important;
+}
+.btn-close:hover {
+  background-color: #dbdbdb;
+}
 .text-center {
   display: flex;
   align-items: center;
@@ -134,15 +116,64 @@ export default {
 .nav-hover {
   cursor: pointer;
 }
+.row-nav-top {
+  // margin: 0!important;
+  .nav-top {
+    height: 2rem;
+    padding-right: 5% !important;
+    display: flex;
+    font-size: 14px;
+    justify-content: flex-end;
+    background-color: #dbdbbd;
+    align-items: center;
+    // padding: 0!important;
+    div {
+      margin: 0.5rem;
+    }
+    div:hover {
+      cursor: pointer;
+    }
+  }
+}
+.terms-title {
+  margin-top: 2rem;
+  font-size: 18px;
+}
+.list-terms {
+  font-size: 20px;
+  color: #171717 !important;
+  div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  div:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
 .navbar {
   padding-left: 5%;
   padding-right: 5%;
   align-items: center;
-  margin: 0 !important;
-  border-bottom: 1px solid #dbdbdb;
+  // margin: 0 !important;
+  // border-bottom: 1px solid #dbdbdb;
   font-size: 18px;
+  // margin-top: 0px !important;
 }
-
+.v-dialog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0 !important;
+  max-width: 100% !important;
+  border-radius: 0 !important;
+}
+.v-sheet.v-card {
+  border-radius: 0 !important;
+}
+.v-card__text {
+  margin-top: 8px;
+}
 .route-home {
   font-size: 26px;
   font-weight: 700;

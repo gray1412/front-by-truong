@@ -2,9 +2,10 @@
   <v-app>
     <v-main>
       <Header />
-      <v-content>
+      <Category />
+      <v-main>
         <router-view />
-      </v-content>
+      </v-main>
       <Footer />
     </v-main>
   </v-app>
@@ -14,11 +15,13 @@
 import { mapGetters, mapActions } from "vuex";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Category from "@/components/home/Category";
 export default {
   name: "App",
   components: {
     Header,
     Footer,
+    Category,
   },
   data: () => ({
     //
@@ -34,7 +37,7 @@ export default {
   },
   mounted() {
     //Clear the browser cache data in localStorage when closing the browser window
-    window.onbeforeunload = function (e) {
+    window.onbeforeunload = function () {
       var storage = window.localStorage;
       storage.clear();
     };
@@ -45,8 +48,9 @@ export default {
     }),
   },
   created() {
+    const email = localStorage.getItem("email");
     if (!this.authUser) {
-      this.getUser();
+      this.getUser(email);
     }
   },
 };

@@ -2,6 +2,10 @@ export function setProducts(state, val) {
   state.products = val;
 }
 
+export function setProductsByBrand(state, val) {
+  state.productsByBrand = val;
+}
+
 export function setProduct(state, val) {
   state.product = val;
 }

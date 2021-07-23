@@ -3,24 +3,26 @@
     <v-row class="row-main">
       <v-col class="col-main">
         <v-row>
-          <v-col lg="2">
-            <div class="title">MEN</div>
-            <div class="sub-text">
-              <div>Sneakers</div>
-              <div>New</div>
-              <div>Sale</div>
-            </div>
-          </v-col>
-          <v-col lg="2">
-            <div class="title">WOMEN</div>
-            <div class="sub-text">
-              <div>Sneakers</div>
-              <div>New</div>
-              <div>Sale</div>
-            </div>
+          <v-col lg="3">
+            <v-row class="title">LƯƠNG DUY ANH</v-row>
+            <v-row class="sub-text">
+              <v-col>Địa chỉ</v-col>
+            </v-row>
+            <v-row class="sub-text">
+              <v-col>Số điện thoại</v-col>
+            </v-row>
           </v-col>
           <v-col lg="3">
-            <div class="title">CONTACT</div>
+            <v-row class="title">NGUYỄN XUÂN TRƯỜNG</v-row>
+            <v-row class="sub-text">
+              <v-col>Địa chỉ</v-col>
+            </v-row>
+            <v-row class="sub-text">
+              <v-col>Số điện thoại</v-col>
+            </v-row>
+          </v-col>
+          <v-col lg="3">
+            <v-row class="title">CONTACT</v-row>
             <div class="sub-text footer-flex">
               <div>
                 <span>
@@ -64,7 +66,7 @@
             </div>
           </v-col>
           <v-col lg="3">
-            <div class="title">CONNECT WITH US</div>
+            <v-row class="title">CONNECT WITH US</v-row>
             <div class="sub-text">
               <div>
                 <span>
@@ -96,7 +98,7 @@
                     style="margin-right: 5px"
                     src="@/assets/svg/ic_mail.svg"
                   />
-                  info@kiwi.com
+                  luongduyanh1999@gmail.com
                 </span>
               </div>
               <div class="end-point">
@@ -107,7 +109,7 @@
                     style="margin-right: 5px"
                     src="@/assets/svg/ic_globe.svg"
                   />
-                  www.sneakers.com
+                  www.techzones.com
                 </span>
               </div>
             </div>
@@ -116,7 +118,7 @@
       </v-col>
     </v-row>
     <v-row class="coppy-right">
-      <v-col class="center">CoppyRight@ 2021 by Kiwi </v-col>
+      <v-col class="center">CoppyRight@ 2021 by LDA|TRUONG </v-col>
     </v-row>
   </div>
 </template>
@@ -126,14 +128,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.main {
-  // margin-top: 10%;
-}
 .row-main {
   margin: 0 !important;
   //   height: 65vh;
-  background-color: #171717;
-  color: #bbb;
+  background-color: #f7f7f0;
+  color: #1e2022;
   padding: 2%;
 }
 .end-point {
@@ -150,7 +149,7 @@ export default {
     margin-bottom: 8px;
     button {
       border-radius: 50%;
-      border: 1px solid #dbdbdb;
+      border: 1px solid #1e2022;
       margin-right: 1rem;
       text-align: center;
       width: 3rem;
@@ -160,11 +159,11 @@ export default {
 }
 .coppy-right {
   margin: 0 !important;
-  background-color: #1e2022;
+  background-color: #dfdfd5;
   .center {
     text-align: center;
     height: 3rem;
-    color: #bbb;
+    color: #1e2022;
     font-weight: 600;
   }
 }

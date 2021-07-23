@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import ApiService from '@/services/ApiService';
 import axios from '../utils/axios'
 const AuthService = {

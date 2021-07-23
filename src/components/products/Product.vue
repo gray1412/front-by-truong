@@ -1,9 +1,15 @@
 <template>
   <v-card class="mx-auto" max-width="200">
-    <v-img :src="product.image_cover" height="200px"></v-img>
+    <div style="height: 200px">
+      <router-link :to="'/details/' + product.ID">
+        <v-img :src="product.image_cover"></v-img>
+      </router-link>
+    </div>
 
     <v-card-title>
-      <div color="blue darken-2">{{ product.name }}</div>
+      <router-link :to="'/details/' + product.ID" style="text-decoration: none">
+        <div color="blue darken-2">{{ product.name }}</div>
+      </router-link>
     </v-card-title>
 
     <v-card-subtitle>
@@ -12,7 +18,9 @@
         <!-- <div class="old-price">14.990.000 ₫</div> -->
       </div>
       <div class="discount">
-        <div class="red lighten-1 white--text">{{product.discount}}</div>
+        <div class="red lighten-1 white--text">
+          -- {{ Math.floor(Math.random() * 20) + 5 }} %
+        </div>
       </div>
     </v-card-subtitle>
   </v-card>
@@ -29,7 +37,12 @@ export default {
 .v-card {
   max-height: 300px;
 }
+
+.v-card__image {
+  height: 200px;
+}
 .v-card__title {
+  height: 70px;
   font-size: 15px;
   line-height: 18px;
 }

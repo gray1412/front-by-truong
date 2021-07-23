@@ -1,8 +1,7 @@
 export default function () {
   return {
-    products: [],
+    brands: [],
+    brand: {},
     productsByBrand: [],
-    product: {},
-    cart: [],
   };
 }

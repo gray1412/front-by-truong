@@ -1,11 +1,7 @@
 <template>
   <v-carousel v-model="model">
-    <v-carousel-item v-for="(color, i) in colors" :key="color">
-      <v-sheet :color="color" height="100%" tile>
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="text-h2">Slide {{ i + 1 }}</div>
-        </v-row>
-      </v-sheet>
+    <v-carousel-item v-for="color in colors" :key="color">
+      <v-img :src="color" height="100%"></v-img>
     </v-carousel-item>
   </v-carousel>
 </template>
@@ -15,7 +11,13 @@ export default {
   name: "Banner",
   data: () => ({
     model: 0,
-    colors: ["primary", "secondary", "yellow darken-2", "red", "orange"],
+    colors: [
+      "https://img4.thuthuatphanmem.vn/uploads/2020/06/26/hinh-anh-banner-quang-cao-dien-may_033705887.png",
+      "https://dienthoainamdinh.jweb.vn/uploads/dienthoainamdinh/images/Banner_2.jpg",
+      "https://asanzo.vn/wp-content/uploads/2017/08/banner-demnguoc.jpg",
+      "https://xiaomithanhhoa.vn/wp-content/uploads/2018/10/banner-1-02.jpg",
+      "https://theme.hstatic.net/200000013662/1000516037/14/ms_banner_img3.jpg?v=251",
+    ],
   }),
 };
 </script>

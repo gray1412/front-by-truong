@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
@@ -7,6 +6,7 @@ import store from "@/stores";
 Vue.use(VueRouter);
 
 const routes = [
+  //trang home
   {
     path: "/",
     name: "home",
@@ -15,6 +15,7 @@ const routes = [
       title: "DuyAnh|Truong",
     },
   },
+  //đăng nhập
   {
     path: "/auth/login",
     name: "login",
@@ -25,7 +26,7 @@ const routes = [
       isLogin: true,
     },
   },
-
+  //đăng kí
   {
     path: "/user/sign-up",
     name: "sign-up",
@@ -36,10 +37,44 @@ const routes = [
       isLogin: true,
     },
   },
+  //lấy tất cả các brand
   {
-    path: "/product-detail",
-    name: "product-detail",
-    component: () => import("../components/products/ProductDetail.vue"),
+    path: "/brands",
+    name: "brands",
+    component: () => import("../views/brands/BrandList.vue"),
+    meta: {
+      title: "Brands",
+      isPublic: true,
+      isLogin: false,
+    },
+  },
+  //tim kiem va loc san pham
+  {
+    path: "/filter",
+    name: "filter",
+    component: () => import("../components/home/Filter.vue"),
+    meta: {
+      title: "Filter",
+      isPublic: true,
+      isLogin: false,
+    },
+  },
+  //trang tin tức
+  {
+    path: "/posts",
+    name: "posts",
+    component: () => import("../views/brands/BrandList.vue"),
+    meta: {
+      title: "Posts",
+      isPublic: true,
+      isLogin: false,
+    },
+  },
+  //chi tiết sản phẩm
+  {
+    path: "/details/:idProduct",
+    name: "detail",
+    component: () => import("../views/products/Details.vue"),
     meta: {
       title: "Product Detail",
       isPublic: true,
