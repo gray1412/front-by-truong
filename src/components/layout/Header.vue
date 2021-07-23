@@ -1,6 +1,16 @@
 <template>
   <div id="app">
     <div class="row-nav-top">
+      <div class="nav-top">
+        <router-link class="" to="/cart">
+          <img
+            src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png"
+            width="30"
+            alt
+          />
+          <span class="badge badge-danger badge-pill"></span>
+        </router-link>
+      </div>
       <div class="nav-top" v-if="authUser">
         <div @click="logout">Logout</div>
       </div>
@@ -37,16 +47,19 @@
             <v-dialog max-width="600">
               <template v-slot:activator="">
                 <v-col cols="12">
-                  <v-text-field
-                    class="border-input input-edit search-bar"
-                    filled
-                    rounded
-                    dense
-                    height="30"
-                    color="#171717"
-                    placeholder="Search"
-                  >
-                  </v-text-field>
+                  <v-form @submit.prevent="search">
+                    <v-text-field
+                      class="border-input input-edit search-bar"
+                      filled
+                      rounded
+                      dense
+                      height="30"
+                      color="#171717"
+                      placeholder="ESSearch"
+                      v-model="searchName"
+                    >
+                    </v-text-field>
+                  </v-form>
                 </v-col>
               </template>
             </v-dialog>
@@ -63,6 +76,7 @@ export default {
   components: {},
   methods: {
     ...mapActions({ logoutUser: "auth/logout" }),
+
     logout() {
       this.logoutUser().then(() => {
         this.$router.push({ name: "home" }, () => {});

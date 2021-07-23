@@ -48,6 +48,28 @@ const routes = [
       isLogin: false,
     },
   },
+  //tat ca san pham cua 1 brand
+  {
+    path: "/brands/:idBrand/Products",
+    name: "ProductsByBrand",
+    component: () => import("../components/products/ProductListByBrand.vue"),
+    meta: {
+      title: "Product By Brand",
+      isPublic: true,
+      isLogin: false,
+    },
+  },
+  //gio hang
+  {
+    path: "/cart",
+    name: "Cart",
+    component: () => import("../views/cart/Cart.vue"),
+    meta: {
+      title: "Cart",
+      isPublic: true,
+      isLogin: false,
+    },
+  },
   //tim kiem va loc san pham
   {
     path: "/filter",

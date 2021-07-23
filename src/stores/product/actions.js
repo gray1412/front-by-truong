@@ -43,7 +43,6 @@ export function addCart({ commit, getters }, payload) {
   let data = payload.product;
   data["quantity"] = payload.quantity;
   cart.push(data);
-  localStorage.setItem("cart", JSON.stringify(cart)); // luu vao localstorage
   commit("setCart", cart);
 }
 
@@ -56,11 +55,6 @@ export function removeCart({ commit, getters }, id) {
         cart.push(element);
       }
     }
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  //neu ko co product trong cart thi xoa cart trong localstorage
-  if (JSON.parse(localStorage.getItem("cart")).length == 0) {
-    localStorage.removeItem("cart", JSON.stringify(cart));
   }
   commit("setCart", cart);
 }

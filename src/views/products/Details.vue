@@ -3,12 +3,13 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="card text-left shadow-md">
-          <img class="card-img-top" :src="product.image_cover" alt />
+          <img class="card-img-top" :src="product.image_cover"  alt />
         </div>
       </div>
       <div class="col-6 text-left text-justify">
         <div class="display-3">{{ product.name }}</div>
-        <p class="lead text-justify">{{ product.desc }}</p>
+        <br>
+        <p class="lead text-justify">{{ product.description }}</p>
         <div>
           <p class="h3">Price</p>
           <p class="h2">{{ product.price_cover }}</p>
