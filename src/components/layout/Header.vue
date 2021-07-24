@@ -1,23 +1,31 @@
 <template>
   <div id="app">
     <div class="row-nav-top">
-      <div class="nav-top">
+      <div class="nav-top" v-if="authUser">
+        <div @click="logout">Logout</div>
+        <div>|</div>
         <router-link class="" to="/cart">
           <img
             src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png"
             width="30"
             alt
           />
-          <span class="badge badge-danger badge-pill"></span>
+          <span class="badge badge-danger badge-pill">{{ cart.length }}</span>
         </router-link>
-      </div>
-      <div class="nav-top" v-if="authUser">
-        <div @click="logout">Logout</div>
       </div>
       <div class="nav-top" v-if="!authUser">
         <div @click="$router.push({ name: 'login' })">Login</div>
         <div>|</div>
         <div @click="$router.push({ name: 'sign-up' })">Sign Up</div>
+        <div>|</div>
+        <router-link class="" to="/cart">
+          <img
+            src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png"
+            width="30"
+            alt
+          />
+          <span class="badge badge-danger badge-pill">{{ cart.length }}</span>
+        </router-link>
       </div>
     </div>
     <v-row class="navbar">
@@ -27,7 +35,7 @@
         </div>
       </v-col>
 
-      <v-col cols="4" lg="4" md="2" sm="2" xs="2" class="category">
+      <v-col cols="3" lg="4" md="2" sm="2" xs="2" class="category">
         <v-row>
           <v-col class="nav-hover">
             <router-link to="/posts" style="text-decoration: none"
@@ -37,6 +45,11 @@
           <v-col class="nav-hover">
             <router-link to="/brands" style="text-decoration: none"
               >THƯƠNG HIỆU</router-link
+            >
+          </v-col>
+          <v-col class="nav-hover">
+            <router-link to="/essearch" style="text-decoration: none"
+              >ES SEARCH</router-link
             >
           </v-col>
         </v-row>
@@ -56,7 +69,7 @@
                       height="30"
                       color="#171717"
                       placeholder="ESSearch"
-                      v-model="searchName"
+                      v-model="searchText"
                     >
                     </v-text-field>
                   </v-form>
@@ -87,6 +100,8 @@ export default {
     ...mapGetters({
       authUser: "auth/authUser",
     }),
+    ...mapGetters("product", ["cart"]),
+
     id() {
       return this.$route.params.id;
     },
@@ -172,6 +187,7 @@ export default {
   // margin: 0 !important;
   // border-bottom: 1px solid #dbdbdb;
   font-size: 18px;
+
   // margin-top: 0px !important;
 }
 .v-dialog {

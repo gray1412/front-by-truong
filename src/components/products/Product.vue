@@ -35,14 +35,14 @@ export default {
 
 <style scoped>
 .v-card {
-  max-height: 300px;
+  max-height: 350px;
 }
 
 .v-card__image {
   height: 200px;
 }
 .v-card__title {
-  height: 70px;
+  height: 100px;
   font-size: 15px;
   line-height: 18px;
 }

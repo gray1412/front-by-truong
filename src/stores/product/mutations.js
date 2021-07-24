@@ -6,6 +6,10 @@ export function setProductsByBrand(state, val) {
   state.productsByBrand = val;
 }
 
+export function setProductsbySubCate(state, val) {
+  state.productsBySubCate = val;
+}
+
 export function setProduct(state, val) {
   state.product = val;
 }

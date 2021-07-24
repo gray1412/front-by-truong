@@ -1,43 +1,7 @@
 <template>
   <div class="container" style="padding: 30px">
     <div class="row d-flex justify-content-center">
-      <div class="list-group col-8">
-        <a
-          v-for="item in cart"
-          :key="item.ID"
-          href="#"
-          class="
-            list-group-item list-group-item-action
-            d-flex
-            justify-content-between
-            align-items-center
-          "
-        >
-          <img :src="item.image_cover" alt height="60" width="60" />
-          <p class="h3">{{ item.name }}</p>
-          <div class="row">
-            <div class="mr-2">
-              <p>Unique Price</p>
-              <p>{{ item.price_cover }}</p>
-            </div>
-            <div class="mr-2">
-              <p>Total Price</p>
-              <p>
-                {{
-                  Intl.NumberFormat("en-US").format(
-                    parseFloat(item.price_cover.replace(/\D/g, "")) *
-                      item.quantity
-                  )
-                }}
-                đ
-              </p>
-            </div>
-            <div>
-              <p>Quantity</p>
-              <p>{{ item.quantity }}</p>
-            </div>
-          </div>
-        </a>
+      <div class="list-group col-10">
         <div
           class="
             list-group-item list-group-item-action
@@ -46,11 +10,62 @@
             align-items-center
           "
         >
-          <p class="h4">Total</p>
-          <div>
-            <p>Total Price</p>
-            <p>{{ Intl.NumberFormat("en-US").format(totalPrice) }} đ</p>
-          </div>
+          <v-col> <p class="h5">ẢNH</p></v-col>
+          <v-col><p class="h5">TÊN SẢN PHẨM</p></v-col>
+          <v-col><p class="h5">ĐƠN GIÁ</p></v-col>
+          <v-col><p class="h5">SỐ LƯỢNG</p></v-col>
+          <v-col> <p class="h5">TỔNG TIỀN</p></v-col>
+        </div>
+        <router-link
+          v-for="item in cart"
+          :key="item.ID"
+          :to="'/details/' + item.ID"
+          class="
+            list-group-item list-group-item-action
+            d-flex
+            justify-content-between
+            align-items-center
+          "
+        >
+          <v-col>
+            <img :src="item.image_cover" alt height="60" width="60" />
+          </v-col>
+          <v-col
+            ><p>{{ item.name }}</p></v-col
+          >
+          <v-col
+            ><p>{{ item.price_cover }}</p></v-col
+          >
+          <v-col
+            ><p>{{ item.quantity }}</p></v-col
+          >
+          <v-col>
+            <p>
+              {{
+                Intl.NumberFormat("en-US").format(
+                  parseFloat(item.price_cover.replace(/\D/g, "")) *
+                    item.quantity
+                )
+              }}
+              đ
+            </p>
+          </v-col>
+        </router-link>
+        <div
+          class="
+            list-group-item list-group-item-action
+            d-flex
+            justify-content-between
+            align-items-center
+          "
+        >
+          <v-col> <p class="h4">TỔNG</p></v-col>
+          <v-col></v-col>
+          <v-col></v-col>
+          <v-col></v-col>
+          <v-col>
+            <p>{{ Intl.NumberFormat("en-US").format(totalPrice) }} đ</p></v-col
+          >
         </div>
         <button
           @click="checkout()"
@@ -101,5 +116,5 @@ export default {
 </script>
 
 <style>
-@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css);
+@import url(../../assets/css/bootstrap.min.css);
 </style>

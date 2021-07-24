@@ -13,11 +13,23 @@ export function getProducts({ commit }) {
 }
 
 export function getProductsByBrand({ commit }, id) {
-  let url = "http://localhost:8000/api/brands/" + id + "products";
+  let url = "http://localhost:8000/api/brands/" + id + "/products";
   axios
     .get(url)
     .then((response) => {
-      commit("setProductsbyBrand", response.data);
+      commit("setProductsByBrand", response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+export function getProductsBySubCate({ commit }, id) {
+  let url = "http://localhost:8000/api/sub-categories/" + id + "/products";
+  axios
+    .get(url)
+    .then((response) => {
+      commit("setProductsBySubCate", response.data);
     })
     .catch((error) => {
       console.log(error);

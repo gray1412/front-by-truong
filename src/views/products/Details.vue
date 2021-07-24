@@ -1,20 +1,22 @@
 <template>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <div class="col-6">
+      <div class="col-5">
         <div class="card text-left shadow-md">
-          <img class="card-img-top" :src="product.image_cover"  alt />
+          <img class="card-img-top" :src="product.image_cover" alt />
         </div>
       </div>
       <div class="col-6 text-left text-justify">
-        <div class="display-3">{{ product.name }}</div>
-        <br>
+        <div class="h1">{{ product.name }}</div>
+        <br />
         <p class="lead text-justify">{{ product.description }}</p>
         <div>
-          <p class="h3">Price</p>
           <p class="h2">{{ product.price_cover }}</p>
         </div>
         <AddToCart :product="product" />
+      </div>
+      <div class="col-1">
+        <div class="card text-left shadow-md"></div>
       </div>
     </div>
   </div>
@@ -30,7 +32,6 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("account", ["user"]),
     ...mapGetters("product", ["product"]),
   },
   components: { AddToCart },

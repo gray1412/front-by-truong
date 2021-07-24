@@ -12,17 +12,6 @@ export function getBrands({ commit }) {
     });
 }
 
-export function getProductsByBrands({ commit }, id) {
-  let url = "http://localhost:8000/api/brands/" + id + "products";
-  axios
-    .get(url)
-    .then((response) => {
-      commit("sets", response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
 
 export function brandDetails({ commit }, id) {
   let url = "http://localhost:8000/api/brands/" + id;

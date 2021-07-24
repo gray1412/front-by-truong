@@ -52,7 +52,7 @@ const routes = [
   {
     path: "/brands/:idBrand/Products",
     name: "ProductsByBrand",
-    component: () => import("../components/products/ProductListByBrand.vue"),
+    component: () => import("../components/products/ProductList.vue"),
     meta: {
       title: "Product By Brand",
       isPublic: true,
@@ -98,7 +98,19 @@ const routes = [
     name: "detail",
     component: () => import("../views/products/Details.vue"),
     meta: {
-      title: "Product Detail",
+      title: "detail",
+      isPublic: true,
+      isLogin: false,
+    },
+  },
+  //tim kiem
+  // es search
+  {
+    path: "/essearch",
+    name: "essearch",
+    component: () => import("../views/searching/SearchPage.vue"),
+    meta: {
+      title: "ES Search",
       isPublic: true,
       isLogin: false,
     },
@@ -125,6 +137,7 @@ router.beforeEach(async (to, from, next) => {
   // if (requiresAuth && !isAuthenticated) {
   //   router.push({ name: "sign-in" });
   // }
+  window.document.title = to.meta && to.meta.title ? to.meta.title : "Home";
   if (isLogin && isAuthenticated) {
     next("");
   }
